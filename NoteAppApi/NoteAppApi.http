@@ -1,0 +1,6 @@
+@NoteAppApi_HostAddress = http://localhost:5039
+
+GET {{NoteAppApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
