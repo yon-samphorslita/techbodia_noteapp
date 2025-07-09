@@ -51,7 +51,7 @@ const editingNote = ref<Note | null>(null);
 const showCreateForm = ref(false);
 
 const fetchNotes = async () => {
-  const res = await axios.get("http://techbodianoteapp-production.up.railway.app/api/Note");
+  const res = await axios.get("https://techbodianoteapp-production.up.railway.app/api/Note");
   notes.value = res.data;
 };
 
@@ -63,13 +63,13 @@ const handleFormSubmit = async ({
   content: string;
 }) => {
   if (editingNote.value) {
-    await axios.put(`http://techbodianoteapp-production.up.railway.app/api/Note/${editingNote.value.id}`, {
+    await axios.put(`https://techbodianoteapp-production.up.railway.app/api/Note/${editingNote.value.id}`, {
       ...editingNote.value,
       title,
       content,
     });
   } else {
-    await axios.post("http://techbodianoteapp-production.up.railway.app/api/Note", { title, content });
+    await axios.post("https://techbodianoteapp-production.up.railway.app/api/Note", { title, content });
   }
 
   await fetchNotes();
@@ -78,7 +78,7 @@ const handleFormSubmit = async ({
 
 const deleteNote = async (id: number) => {
   if (confirm("Are you sure?")) {
-    await axios.delete(`http://techbodianoteapp-production.up.railway.app/api/Note/${id}`);
+    await axios.delete(`https://techbodianoteapp-production.up.railway.app/api/Note/${id}`);
     await fetchNotes();
     if (selectedNote.value?.id === id) selectedNote.value = null;
   }
