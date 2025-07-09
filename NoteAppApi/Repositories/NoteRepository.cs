@@ -31,7 +31,7 @@ namespace NoteAppApi.Repositories
         {
             var query = "INSERT INTO Notes (Title, Content, CreatedAt, UpdatedAt) " +
                         "VALUES (@Title, @Content, @CreatedAt, @UpdatedAt); " +
-                        "SELECT CAST(SCOPE_IDENTITY() as int)";
+                        "SELECT LAST_INSERT_ID();";
             using var connection = _context.CreateConnection();
             return await connection.ExecuteScalarAsync<int>(query, note);
         }
