@@ -40,8 +40,8 @@ namespace NoteAppApi.Controllers
             {
                 return BadRequest("Invalid note data.");
             }
-                note.CreatedAt = DateTime.UtcNow;
-    note.UpdatedAt = DateTime.UtcNow;
+            note.CreatedAt = DateTime.UtcNow;
+            note.UpdatedAt = DateTime.UtcNow;
 
             var createdNoteId = await _noteRepository.CreateNoteAsync(note);
             return CreatedAtAction(nameof(GetNoteById), new { id = createdNoteId }, note);
@@ -71,6 +71,20 @@ namespace NoteAppApi.Controllers
                 return NotFound();
             }
             return NoContent();
+        }
+
+        [HttpGet("test-db")]
+        public async Task<IActionResult> TestDb()
+        {
+            try
+            {
+                var notes = await _noteRepository.GetAllNotesAsync();
+                return Ok("DB connection successful. Notes found: " + notes.Count());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "DB error: " + ex.Message);
+            }
         }
     }
 }
