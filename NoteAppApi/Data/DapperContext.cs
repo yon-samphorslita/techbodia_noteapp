@@ -1,5 +1,6 @@
 using System.Data.SqlClient;
 using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace NoteAppApi.Data
 {
@@ -16,7 +17,7 @@ namespace NoteAppApi.Data
 
         public IDbConnection CreateConnection()
         {
-            return new SqlConnection(_connectionString);
+            return new MySqlConnection(_connectionString);
         }
     }
 }
