@@ -32,8 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 // app.UseHttpsRedirection();
 app.UseAuthorization();
-app.MapControllers();
 app.UseCors("AllowVueApp");
+app.MapControllers();
 app.MapGet("/", () => "Note API is running!");
 
 app.Run();
