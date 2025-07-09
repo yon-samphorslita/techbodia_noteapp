@@ -29,8 +29,8 @@ namespace NoteAppApi.Repositories
 
         public async Task<int> CreateNoteAsync(Note note)
         {
-            var query = "INSERT INTO Notes (Title, Content, CreatedAt, UpdatedAt, UserId) " +
-                        "VALUES (@Title, @Content, @CreatedAt, @UpdatedAt, @UserId); " +
+            var query = "INSERT INTO Notes (Title, Content, CreatedAt, UpdatedAt) " +
+                        "VALUES (@Title, @Content, @CreatedAt, @UpdatedAt); " +
                         "SELECT CAST(SCOPE_IDENTITY() as int)";
             using var connection = _context.CreateConnection();
             return await connection.ExecuteScalarAsync<int>(query, note);

@@ -7,6 +7,5 @@ namespace NoteAppApi.Models
         public string Content { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-        public int? UserId { get; set; }
     }
 }
