@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowVueApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173",     "https://yon-samphorslita.github.io/techbodia_noteapp/#/"
+        policy.WithOrigins("http://localhost:5173", "https://yon-samphorslita.github.io"
 ) 
               .AllowAnyHeader()
               .AllowAnyMethod();

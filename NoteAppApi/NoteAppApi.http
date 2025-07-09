@@ -1,4 +1,4 @@
-@NoteAppApi_HostAddress = http://localhost:5039
+@NoteAppApi_HostAddress = http://techbodianoteapp-production.up.railway.app
 
 GET {{NoteAppApi_HostAddress}}/weatherforecast/
 Accept: application/json
