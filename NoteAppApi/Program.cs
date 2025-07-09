@@ -11,9 +11,9 @@ builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<NoteRepository>();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowVueApp", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "https://yon-samphorslita.github.io")
+        policy.AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -30,7 +30,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowVueApp");
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
