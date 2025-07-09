@@ -15,7 +15,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowVueApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173") 
+        policy.WithOrigins("http://localhost:5173",     "https://yon-samphorslita.github.io/techbodia_noteapp/#/"
+) 
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -33,4 +34,6 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 app.MapControllers();
 app.UseCors("AllowVueApp");
+app.MapGet("/", () => "Note API is running!");
+
 app.Run();
